@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chifa El Puente - Menú Digital</title>
+    <link rel="icon" type="image/jpeg" href="https://assets.peblla.net/175152215666876f08b4560c24668b878f96669661c6e.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- ESTILOS GENERALES --- */
@@ -17,10 +18,9 @@
         body {
             background-color: #f5f5f7; 
             color: #1d1d1f; 
-            padding-bottom: 140px; /* Espacio para la barra flotante inferior */
+            padding-bottom: 140px;
         }
 
-        /* --- CABECERA --- */
         header {
             background-color: #e60000;
             padding: 20px;
@@ -46,7 +46,6 @@
             margin-top: 4px;
         }
 
-        /* --- BANNER DE AVISO --- */
         .notice-banner {
             background-color: #ffcc00;
             color: #000000;
@@ -56,14 +55,39 @@
             font-weight: 600;
         }
 
-        /* --- CONTENEDOR PRINCIPAL --- */
+        .carousel-banner {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+            font-size: 12px;
+            font-weight: 600;
+            border-bottom: 2px solid #e60000;
+        }
+
+        .carousel-track {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 22s linear infinite;
+        }
+
+        .carousel-item {
+            display: inline-block;
+            padding: 0 30px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
         .container {
             max-width: 1300px; 
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* --- TÍTULOS DE SECCIÓN --- */
         .section-title {
             font-size: 16px;
             margin: 35px 0 20px 0;
@@ -76,14 +100,12 @@
             border-radius: 0 8px 8px 0;
         }
 
-        /* --- DISEÑO DE CUADRÍCULA (GRID) --- */
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
         }
 
-        /* --- TARJETAS DE PRODUCTO --- */
         .menu-card {
             background-color: #ffffff; 
             border-radius: 12px;
@@ -99,7 +121,6 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
         }
 
-        /* --- IMAGEN DEL PRODUCTO --- */
         .menu-img-container {
             width: 120px;
             height: 120px;
@@ -118,7 +139,6 @@
             object-fit: contain; 
         }
 
-        /* --- INFORMACIÓN DEL PRODUCTO --- */
         .menu-info {
             padding: 15px;
             flex: 1;
@@ -140,6 +160,42 @@
             line-height: 1.4;
         }
 
+        /* CONTENEDOR DE OPCIONES DINÁMICAS */
+        .item-options-container {
+            display: none;
+            margin-top: 8px;
+            padding: 8px;
+            background-color: #fff9e6;
+            border: 1px dashed #ffcc00;
+            border-radius: 6px;
+        }
+
+        .single-option-group {
+            margin-bottom: 6px;
+        }
+
+        .single-option-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .single-option-group label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #d60000;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .single-option-group select {
+            width: 100%;
+            padding: 4px;
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: #fff;
+        }
+
         .menu-bottom {
             display: flex;
             justify-content: space-between;
@@ -153,7 +209,6 @@
             font-weight: 700;
         }
 
-        /* CONTROLES DE CANTIDAD (+ / -) */
         .qty-controls {
             display: flex;
             align-items: center;
@@ -189,7 +244,6 @@
             text-align: center;
         }
 
-        /* --- RESPONSIVE: PC Y TABLETS GRANDES --- */
         @media (min-width: 768px) {
             .menu-grid {
                 grid-template-columns: repeat(4, 1fr); 
@@ -216,7 +270,6 @@
             }
         }
 
-        /* --- BARRA Y BOTÓN FLOTANTE DE WHATSAPP --- */
         .order-bar {
             position: fixed;
             bottom: 0;
@@ -224,7 +277,7 @@
             width: 100%;
             background-color: #ffffff;
             box-shadow: 0 -4px 15px rgba(0,0,0,0.12);
-            padding: 15px 20px;
+            padding: 12px 20px;
             z-index: 999;
             display: flex;
             justify-content: space-between;
@@ -240,6 +293,12 @@
         .order-summary-items {
             font-size: 12px;
             color: #6e6e73;
+        }
+
+        .order-summary-taper {
+            font-size: 11px;
+            color: #e60000;
+            font-weight: 600;
         }
 
         .order-summary-total {
@@ -287,12 +346,23 @@
         Haz tu pedido con 15 a 20 minutos de anticipación y recógelo listo.
     </div>
 
+    <div class="carousel-banner">
+        <div class="carousel-track">
+            <span class="carousel-item">🍱 Todo menú para llevar se cobrará + 1 sol adicional por taper</span>
+            <span class="carousel-item">🍚 Cambia tu arroz blanco por chaufa por solo S/ 1.00 adicional</span>
+            <span class="carousel-item">🍜 Cambio de fideo sancochado a fideo frito: +S/ 1.00</span>
+            <span class="carousel-item">🍱 Todo menú para llevar se cobrará + 1 sol adicional por taper</span>
+            <span class="carousel-item">🍚 Cambia tu arroz blanco por chaufa por solo S/ 1.00 adicional</span>
+            <span class="carousel-item">🍜 Cambio de fideo sancochado a fideo frito: +S/ 1.00</span>
+        </div>
+    </div>
+
     <div class="container">
         
         <h2 class="section-title">Menú</h2>
         <div class="menu-grid">
             
-            <div class="menu-card" data-name="Combinado Taypa" data-price="16.90">
+            <div class="menu-card" data-name="Combinado Taypa" data-price="16.90" data-category="plato" data-option-type="fideo">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146469530.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg" alt="Combinado Taypa">
                 </div>
@@ -301,6 +371,7 @@
                         <h3>Combinado Taypa</h3>
                         <p>Arroz Chaufa de Pollo acompañado de un contundente Tallarín Taypa.</p>
                     </div>
+                    <div class="item-options-container"></div>
                     <div class="menu-bottom">
                         <div class="menu-price">S/ 16.90</div>
                         <div class="qty-controls">
@@ -312,7 +383,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Tallarín Taypa" data-price="16.90">
+            <div class="menu-card" data-name="Tallarín Taypa" data-price="16.90" data-category="plato" data-option-type="fideo">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146469529.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg" alt="Tallarín Taypa">
                 </div>
@@ -321,6 +392,7 @@
                         <h3>Tallarín Taypa</h3>
                         <p>Tallarín saltado Taypa individual con verduras frescas y carnes selectas.</p>
                     </div>
+                    <div class="item-options-container"></div>
                     <div class="menu-bottom">
                         <div class="menu-price">S/ 16.90</div>
                         <div class="qty-controls">
@@ -332,7 +404,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Arroz Chaufa de Pollo" data-price="15.90">
+            <div class="menu-card" data-name="Arroz Chaufa de Pollo" data-price="15.90" data-category="plato">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146469527.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=400&width=400&canvas=400:400&format=jpeg&dpr=2" alt="Arroz Chaufa de Pollo">
                 </div>
@@ -352,7 +424,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Chancho Asado al Ajo" data-price="18.00">
+            <div class="menu-card" data-name="Chancho Asado al Ajo" data-price="18.00" data-category="plato" data-option-type="arroz">
                 <div class="menu-img-container">
                     <img src="https://delosi-pidelo.s3.amazonaws.com/madam-tusan/products/chancho-asado-al-ajo-202603160506423086.webp" alt="Chancho Asado al Ajo">
                 </div>
@@ -361,6 +433,7 @@
                         <h3>Chancho Asado al ajo</h3>
                         <p>Chancho salteado con verduras y salsa ostión. Acompañado de nabo encurtido.</p>
                     </div>
+                    <div class="item-options-container"></div>
                     <div class="menu-bottom">
                         <div class="menu-price">S/ 18.00</div>
                         <div class="qty-controls">
@@ -372,7 +445,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Aeropuerto Especial" data-price="16.00">
+            <div class="menu-card" data-name="Aeropuerto Especial" data-price="16.00" data-category="plato" data-option-type="fideo">
                 <div class="menu-img-container">
                     <img src="https://delosi-pidelo.s3.amazonaws.com/madam-tusan/products/aeropuerto-taypa-sobre-tortilla-202603160506581103.webp" alt="Aeropuerto Especial">
                 </div>
@@ -381,6 +454,7 @@
                         <h3>Aeropuerto Especial</h3>
                         <p>Combinación perfecta de arroz chaufa y tallarín saltados juntos al wok.</p>
                     </div>
+                    <div class="item-options-container"></div>
                     <div class="menu-bottom">
                         <div class="menu-price">S/ 16.00</div>
                         <div class="qty-controls">
@@ -392,15 +466,16 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Pollo Chijaukay" data-price="17.00">
+            <div class="menu-card" data-name="Pollo Chijaukay" data-price="17.00" data-category="plato" data-option-type="arroz">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146469531.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg" alt="Pollo Chijaukay">
                 </div>
                 <div class="menu-info">
                     <div>
                         <h3>Pollo Chijaukay</h3>
-                        <p>Trozos de pollo crujiente bañadas en nuestra salsa salada oriental, acompañado con arroz chaufa.</p>
+                        <p>Trozos de pollo crujiente bañadas en nuestra salsa salada oriental.</p>
                     </div>
+                    <div class="item-options-container"></div>
                     <div class="menu-bottom">
                         <div class="menu-price">S/ 17.00</div>
                         <div class="qty-controls">
@@ -412,15 +487,16 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Pollo Tipakay" data-price="18.00">
+            <div class="menu-card" data-name="Pollo Tipakay" data-price="18.00" data-category="plato" data-option-type="arroz">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146469535.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg" alt="Pollo Tipakay">
                 </div>
                 <div class="menu-info">
                     <div>
                         <h3>Pollo Tipakay</h3>
-                        <p>Pollo crujiente bañado en la tradicional salsa de tamarindo casera, acompañado con arroz chaufa.</p>
+                        <p>Pollo crujiente bañado en la tradicional salsa de tamarindo casera.</p>
                     </div>
+                    <div class="item-options-container"></div>
                     <div class="menu-bottom">
                         <div class="menu-price">S/ 18.00</div>
                         <div class="qty-controls">
@@ -432,7 +508,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Kamlu Wantán" data-price="20.00">
+            <div class="menu-card" data-name="Kamlu Wantán" data-price="20.00" data-category="plato">
                 <div class="menu-img-container">
                     <img src="https://delosi-pidelo.s3.amazonaws.com/madam-tusan/products/kam-lu-wantan-taypa-202603160507162028.webp" alt="Kamlu Wantán">
                 </div>
@@ -457,7 +533,7 @@
         <h2 class="section-title">Entradas</h2>
         <div class="menu-grid">
             
-            <div class="menu-card" data-name="Porción de Wantán Frito (6 und.)" data-price="6.00">
+            <div class="menu-card" data-name="Porción de Wantán Frito (6 und.)" data-price="6.00" data-category="entrada">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146464412.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=400&width=400&canvas=400:400&format=jpeg&dpr=2" alt="Wantán Frito">
                 </div>
@@ -477,7 +553,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Sopa Wantán Simple" data-price="10.00">
+            <div class="menu-card" data-name="Sopa Wantán Simple" data-price="10.00" data-category="entrada">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/s/o/sopa_wantan_1lt.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700" alt="Sopa Wantán">
                 </div>
@@ -497,7 +573,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Sopa Hong Kong" data-price="12.00">
+            <div class="menu-card" data-name="Sopa Hong Kong" data-price="12.00" data-category="entrada">
                 <div class="menu-img-container">
                     <img src="https://delosi-pidelo.s3.amazonaws.com/madam-tusan/products/sopa-hong-kong-202603160506398097.webp" alt="Sopa Hong Kong">
                 </div>
@@ -517,7 +593,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Siu Mai (4 und.)" data-price="9.00">
+            <div class="menu-card" data-name="Siu Mai (4 und.)" data-price="9.00" data-category="entrada">
                 <div class="menu-img-container">
                     <img src="https://delosi-pidelo.s3.amazonaws.com/madam-tusan/products/siu-mai-especial-202603160506531294.webp" alt="Siu Mai">
                 </div>
@@ -542,7 +618,7 @@
         <h2 class="section-title">Bebidas</h2>
         <div class="menu-grid">
             
-            <div class="menu-card" data-name="Inca Kola 500ml" data-price="3.50">
+            <div class="menu-card" data-name="Inca Kola 500ml" data-price="3.50" data-category="bebida">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146464869.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=400&width=400&canvas=400:400&format=jpeg&dpr=2" alt="Inca Kola">
                 </div>
@@ -562,7 +638,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Coca Cola 500ml" data-price="3.50">
+            <div class="menu-card" data-name="Coca Cola 500ml" data-price="3.50" data-category="bebida">
                 <div class="menu-img-container">
                     <img src="https://www.chinawok.com.pe/media/catalog/product/a/g/agru_2146464867.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=400&width=400&canvas=400:400&format=jpeg&dpr=2" alt="Coca Cola">
                 </div>
@@ -582,7 +658,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Chicha Morada (vaso)" data-price="4.00">
+            <div class="menu-card" data-name="Chicha Morada (vaso)" data-price="4.00" data-category="bebida">
                 <div class="menu-img-container">
                     <img src="https://pasteleriasanantonio.com/programados/wp-content/uploads/2022/12/chicha_morada_psa-1.png" alt="Chicha Morada">
                 </div>
@@ -602,7 +678,7 @@
                 </div>
             </div>
 
-            <div class="menu-card" data-name="Agua San Luis 500ml" data-price="2.50">
+            <div class="menu-card" data-name="Agua San Luis 500ml" data-price="2.50" data-category="bebida">
                 <div class="menu-img-container">
                     <img src="https://delosi-pidelo.s3.amazonaws.com/madam-tusan/products/agua-san-luis-personal-sin-gas-202603160507113969.webp" alt="Agua Mineral">
                 </div>
@@ -630,6 +706,7 @@
     <div class="order-bar">
         <div class="order-summary">
             <span class="order-summary-items" id="items-count">0 productos seleccionados</span>
+            <span class="order-summary-taper" id="taper-extra">+ S/ 0.00 por táper</span>
             <span class="order-summary-total" id="total-price">S/ 0.00</span>
         </div>
         <button id="wsp-btn" class="btn-whatsapp" onclick="sendOrder()" disabled>
@@ -637,9 +714,9 @@
         </button>
     </div>
 
-    <!-- LÓGICA JAVASCRIPT -->
+    <!-- LÓGICA JAVASCRIPT CORREGIDA PARA CONFIGURACIÓN INDIVIDUAL -->
     <script>
-        const phoneOwner = "51993970824"; // Número de WhatsApp del Chifa
+        const phoneOwner = "51993970824";
 
         function updateQty(btn, change) {
             const card = btn.closest('.menu-card');
@@ -650,60 +727,154 @@
             if (currentQty < 0) currentQty = 0;
 
             qtySpan.textContent = currentQty;
+
+            renderOptions(card, currentQty);
             calculateTotal();
         }
 
+        // Renderiza selectores individuales para cada unidad seleccionada
+        function renderOptions(card, qty) {
+            const container = card.querySelector('.item-options-container');
+            if (!container) return;
+
+            const optionType = card.dataset.optionType;
+            if (!optionType || qty === 0) {
+                container.style.display = 'none';
+                container.innerHTML = '';
+                return;
+            }
+
+            // Guardar valores previamente seleccionados para mantenerlos si incrementa la cantidad
+            const existingSelects = container.querySelectorAll('select');
+            const previousValues = Array.from(existingSelects).map(s => s.value);
+
+            container.innerHTML = '';
+            container.style.display = 'block';
+
+            for (let i = 1; i <= qty; i++) {
+                const group = document.createElement('div');
+                group.className = 'single-option-group';
+
+                const labelText = qty > 1 ? `Plato ${i}:` : 'Elección:';
+                
+                let optionsHTML = '';
+                if (optionType === 'arroz') {
+                    optionsHTML = `
+                        <option value="0">Arroz Blanco (Estándar)</option>
+                        <option value="1">Arroz Chaufa (+S/ 1.00)</option>
+                    `;
+                } else if (optionType === 'fideo') {
+                    optionsHTML = `
+                        <option value="0">Fideo Sancochado (Estándar)</option>
+                        <option value="1">Fideo Frito (+S/ 1.00)</option>
+                    `;
+                }
+
+                group.innerHTML = `
+                    <label>${labelText}</label>
+                    <select onchange="calculateTotal()">
+                        ${optionsHTML}
+                    </select>
+                `;
+
+                container.appendChild(group);
+
+                // Restaurar selección previa si existía
+                const newSelect = group.querySelector('select');
+                if (previousValues[i - 1] !== undefined) {
+                    newSelect.value = previousValues[i - 1];
+                }
+            }
+        }
+
         function calculateTotal() {
-            let total = 0;
-            let totalItems = 0;
+            let totalFoodPrice = 0;
+            let totalItemsCount = 0;
+            let totalTaperCharge = 0;
+
             const cards = document.querySelectorAll('.menu-card');
 
             cards.forEach(card => {
                 const qty = parseInt(card.querySelector('.qty-count').textContent);
                 const price = parseFloat(card.dataset.price);
+                const category = card.dataset.category;
+                const selects = card.querySelectorAll('.item-options-container select');
 
                 if (qty > 0) {
-                    total += qty * price;
-                    totalItems += qty;
+                    let itemTotal = qty * price;
+
+                    // Suma de extras individuales por cada selector
+                    selects.forEach(select => {
+                        itemTotal += parseFloat(select.value);
+                    });
+
+                    totalFoodPrice += itemTotal;
+                    totalItemsCount += qty;
+
+                    if (category === 'plato' || category === 'entrada') {
+                        totalTaperCharge += qty * 1.00;
+                    }
                 }
             });
 
-            // Actualizar interfaz
-            document.getElementById('items-count').textContent = `${totalItems} producto(s) seleccionado(s)`;
-            document.getElementById('total-price').textContent = `S/ ${total.toFixed(2)}`;
+            const grandTotal = totalFoodPrice + totalTaperCharge;
+
+            document.getElementById('items-count').textContent = `${totalItemsCount} producto(s) seleccionado(s)`;
+            document.getElementById('taper-extra').textContent = `+ S/ ${totalTaperCharge.toFixed(2)} por táper`;
+            document.getElementById('total-price').textContent = `S/ ${grandTotal.toFixed(2)}`;
 
             const wspBtn = document.getElementById('wsp-btn');
-            if (totalItems > 0) {
-                wspBtn.disabled = false;
-            } else {
-                wspBtn.disabled = true;
-            }
+            wspBtn.disabled = totalItemsCount === 0;
         }
 
         function sendOrder() {
             const cards = document.querySelectorAll('.menu-card');
             let itemsList = "";
-            let total = 0;
+            let totalFoodPrice = 0;
+            let totalTaperCharge = 0;
 
             cards.forEach(card => {
                 const qty = parseInt(card.querySelector('.qty-count').textContent);
                 const name = card.dataset.name;
                 const price = parseFloat(card.dataset.price);
+                const category = card.dataset.category;
+                const selects = card.querySelectorAll('.item-options-container select');
 
                 if (qty > 0) {
-                    const subtotal = qty * price;
-                    total += subtotal;
-                    itemsList += `• ${qty}x ${name} - S/ ${subtotal.toFixed(2)}\n`;
+                    if (selects.length > 0) {
+                        // Si hay opciones personalizadas, las agrupamos o desglosamos por cada unidad
+                        selects.forEach((select, index) => {
+                            const itemExtra = parseFloat(select.value);
+                            const selectedText = select.options[select.selectedIndex].text;
+                            const unitPrice = price + itemExtra;
+                            
+                            totalFoodPrice += unitPrice;
+                            itemsList += `• 1x ${name} (${selectedText}) - S/ ${unitPrice.toFixed(2)}\n`;
+                        });
+                    } else {
+                        // Productos estándar sin personalización de acompañamiento
+                        const subtotalItem = qty * price;
+                        totalFoodPrice += subtotalItem;
+                        itemsList += `• ${qty}x ${name} - S/ ${subtotalItem.toFixed(2)}\n`;
+                    }
+
+                    if (category === 'plato' || category === 'entrada') {
+                        totalTaperCharge += qty * 1.00;
+                    }
                 }
             });
 
-            // Formatear mensaje para WhatsApp
-            let message = `¡Hola! \nQuisiera realizar el siguiente pedido para llevar:\n\n${itemsList}\n*Total estimado:* S/ ${total.toFixed(2)}\n\nPor favor confirmen el tiempo de entrega y número de Yape/Plin. ¡Gracias!`;
+            const grandTotal = totalFoodPrice + totalTaperCharge;
 
-            // Codificar mensaje para URL
-            let encodedMessage = encodeURIComponent(message);
+            let message = `¡Hola! \nQuisiera realizar el siguiente pedido para llevar:\n\n${itemsList}`;
             
-            // Abrir enlace de WhatsApp
+            if (totalTaperCharge > 0) {
+                message += `• Costo de táper: S/ ${totalTaperCharge.toFixed(2)}\n`;
+            }
+
+            message += `\n*Total a pagar:* S/ ${grandTotal.toFixed(2)}\n\nPor favor confirmen el tiempo de entrega y número de Yape/Plin. ¡Gracias!`;
+
+            let encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${phoneOwner}?text=${encodedMessage}`, '_blank');
         }
     </script>
