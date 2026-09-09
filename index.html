@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chifa El Puente - Menú Digital</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-text-group">
+                <h1>Chifa El Puente</h1>
+                <p>Calle Derecha 731, Huaral (Ref. 28 de Julio)</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="notice-banner">
+        Haz tu pedido con 15 a 20 minutos de anticipación y recógelo listo.
+    </div>
+
+    <div class="carousel-banner">
+        <div class="carousel-track">
+            <span class="carousel-item">🍱 Todo menú para llevar y entradas a la carta se cobrarán + 1 sol adicional por táper</span>
+            <span class="carousel-item">🍚 Cambia tu arroz blanco por chaufa por solo S/ 1.00 adicional</span>
+            <span class="carousel-item">🍜 Cambio de fideo sancochado a fideo frito: +S/ 1.00</span>
+            <span class="carousel-item">🍱 Todo menú para llevar y entradas a la carta se cobrarán + 1 sol adicional por táper</span>
+            <span class="carousel-item">🍚 Cambia tu arroz blanco por chaufa por solo S/ 1.00 adicional</span>
+            <span class="carousel-item">🍜 Cambio de fideo sancochado a fideo frito: +S/ 1.00</span>
+        </div>
+    </div>
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR CON INDICADORES MÓVILES -->
+    <div class="category-nav-wrapper">
+        <div class="scroll-indicator left" id="scroll-left">&lt;</div>
+        <nav class="category-nav" id="category-nav">
+            <div class="category-track">
+                <a href="#promos" class="category-item active" data-target="promos">
+                    <span>🔥 Promos del Mes</span>
+                </a>
+                <a href="#menu" class="category-item" data-target="menu">
+                    <span>Menú</span>
+                </a>
+                <a href="#entradas" class="category-item" data-target="entradas">
+                    <span>Entradas</span>
+                </a>
+                <a href="#platos-carta" class="category-item" data-target="platos-carta">
+                    <span>Platos a la Carta</span>
+                </a>
+                <a href="#bebidas" class="category-item" data-target="bebidas">
+                    <span>Bebidas</span>
+                </a>
+            </div>
+        </nav>
+        <div class="scroll-indicator right" id="scroll-right">&gt;</div>
+    </div>
+
+    <div class="container">
+
+        <!-- PROMOCIONES DEL MES -->
+        <h2 class="section-title" id="promos">Promos del Mes</h2>
+        <div class="menu-grid">
+
+            <!-- Combo 1 -->
+            <div class="menu-card" data-name="Combo1" data-price="16.00" data-category="plato" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/chaufa-pollo.jpg" alt="Promo 1">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <span class="badge-combo">Combo 1</span>
+                        <h3>Chaufa + Gaseosa</h3>
+                        <p>Arroz Chaufa de Pollo personal + Inca Kola 500ml helada.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 16.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combo 2 -->
+            <div class="menu-card" data-name="Combo2" data-price="20.00" data-category="plato" data-option-type="arroz">
+                <div class="menu-img-container">
+                    <img src="img/chijaukay.jpg" alt="Promo 2">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <span class="badge-combo">Combo 2</span>
+                        <h3>Chijaukay + Chicha</h3>
+                        <p>Pollo Chijaukay con opción de arroz y vaso de chicha morada.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 20.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combo 3 -->
+            <div class="menu-card" data-name="Combo3" data-price="21.00" data-category="plato" data-option-type="fideo">
+                <div class="menu-img-container">
+                    <img src="img/aeropuerto-especial.png" alt="Promo 3">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <span class="badge-combo">Combo 3</span>
+                        <h3>Dúo Oriental</h3>
+                        <p>Aeropuerto Especial + Porción de Wantán Frito (6 und.).</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 21.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MENÚ PRINCIPAL -->
+        <h2 class="section-title" id="menu">Menú</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card" data-name="Combinado Taypa" data-price="16.90" data-category="plato"
+                data-option-type="fideo" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/comibado-taypa.jpg" alt="Combinado Taypa">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Combinado Taypa</h3>
+                        <p>Arroz Chaufa de Pollo acompañado de un contundente Tallarín Taypa.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 16.90</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Tallarín Taypa" data-price="16.90" data-category="plato"
+                data-option-type="fideo" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/tallarin-taypa.jpg" alt="Tallarín Taypa">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Tallarín Taypa</h3>
+                        <p>Tallarín saltado Taypa individual con verduras frescas y carnes selectas.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 16.90</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Arroz Chaufa de Pollo" data-price="14.00" data-category="plato"
+                data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/chaufa-pollo.jpg" alt="Arroz Chaufa de Pollo">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Arroz Chaufa de Pollo</h3>
+                        <p>Clásico arroz chaufa individual saltado al wok al estilo tradicional.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 14.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chaufa Especial (agregado después del chaufa de pollo) -->
+            <div class="menu-card" data-name="Chaufa Especial" data-price="18.00" data-category="plato" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/chaufa-pollo.jpg" alt="Chaufa Especial">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Chaufa Especial</h3>
+                        <p>Arroz salteado con pollo, carne, chancho asado, langostinos, holantao, frejolito chino, huevo y fideito crocante.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 18.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Chancho Asado al Ajo" data-price="18.00" data-category="plato"
+                data-option-type="arroz" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/chancho-asado-al-ajo.png" alt="Chancho Asado al Ajo">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Chancho Asado al ajo</h3>
+                        <p>Chancho salteado con verduras y salsa ostión. Acompañado de nabo encurtido.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 18.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Aeropuerto Especial" data-price="16.00" data-category="plato"
+                data-option-type="fideo" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/aeropuerto-especial.png" alt="Aeropuerto Especial">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Aeropuerto Especial</h3>
+                        <p>Combinación perfecta de arroz chaufa y tallarín saltados juntos al wok.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 16.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Pollo Chijaukay" data-price="17.00" data-category="plato"
+                data-option-type="arroz" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/chijaukay.jpg" alt="Pollo Chijaukay">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Pollo Chijaukay</h3>
+                        <p>Trozos de pollo crujiente bañadas en nuestra salsa salada oriental.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 17.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Pollo Tipakay" data-price="18.00" data-category="plato"
+                data-option-type="arroz" data-option-entrada="true">
+                <div class="menu-img-container">
+                    <img src="img/tipakay.jpg" alt="Pollo Tipakay">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Pollo Tipakay</h3>
+                        <p>Pollo crujiente bañado en la tradicional salsa de tamarindo casera.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 18.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Kamlu Wantán" data-price="20.00" data-category="plato" data-option-entrada="true" data-option-type="arroz">
+                <div class="menu-img-container">
+                    <img src="img/kamlu-wantan.webp" alt="Kamlu Wantán">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Kamlu Wantán</h3>
+                        <p>Wantanes crujientes con saltado agridulce de verduras, piña y carnes mixtas.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 20.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nuevas 4 cards del menú -->
+            <div class="menu-card" data-name="Pollo Saltado Con Verduras" data-price="16.90" data-category="plato" data-option-entrada="true" data-option-type="arroz">
+                <div class="menu-img-container">
+                    <img src="img/chaufa-pollo.jpg" alt="Pollo Saltado Con Verduras">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Pollo Saltado Con Verduras</h3>
+                        <p>Pollo salteado al wok con salsa de ostión.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 16.90</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Pollo Enrollado con Espárragos" data-price="17.00" data-category="plato" data-option-entrada="true" data-option-type="arroz">
+                <div class="menu-img-container">
+                    <img src="img/chijaukay.jpg" alt="Pollo Enrollado con Espárragos">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Pollo Enrollado con Espárragos</h3>
+                        <p>Enrollado y bañado en salsa de ostión.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 17.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Chancho con Piña y Duraznos" data-price="19.00" data-category="plato" data-option-entrada="true" data-option-type="arroz">
+                <div class="menu-img-container">
+                    <img src="img/chancho-asado-al-ajo.png" alt="Chancho con Piña y Duraznos">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Chancho con Piña y Duraznos</h3>
+                        <p>Dados de cerdo crujiente con piña, duraznos y verduras.</p>
+                    </div>
+                    <div class="item-options-container"></div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 19.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ENTRADAS -->
+        <h2 class="section-title" id="entradas">Entradas</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card" data-name="Porción de Wantán Frito (6 und.)" data-price="6.00"
+                data-category="entrada">
+                <div class="menu-img-container">
+                    <img src="img/wantan-frito.jpg" alt="Wantán Frito">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Porción de Wantán Frito (6 und.)</h3>
+                        <p>Crujientes wantanes fritos acompañados de salsa tamarindo.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 6.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Sopa Wantán Simple" data-price="10.00" data-category="entrada">
+                <div class="menu-img-container">
+                    <img src="img/sopa-wantan.jpg" alt="Sopa Wantán">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Sopa Wantán Simple</h3>
+                        <p>Caldo claro y reconfortante con col china, fideos y wantanes rellenos.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 10.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Sopa Hong Kong" data-price="12.00" data-category="entrada">
+                <div class="menu-img-container">
+                    <img src="img/sopa-hong-kong.webp" alt="Sopa Hong Kong">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Sopa Hong Kong</h3>
+                        <p>Sopa Siu Kao HK con Siu Kao, fideo Tanmin, choy san, pollo y chancho asado.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 12.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Siu Mai (4 und.)" data-price="9.00" data-category="entrada">
+                <div class="menu-img-container">
+                    <img src="img/siu-mai.webp" alt="Siu Mai">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Siu Mai (4 und.)</h3>
+                        <p>Bocaditos al vapor rellenos de carne de cerdo y langostinos.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 9.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PLATOS A LA CARTA -->
+        <h2 class="section-title" id="platos-carta">Platos a la Carta</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card" data-name="Tallarín De Pollo En Trozos Con Verduras" data-price="21.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/tallarin-taypa.jpg" alt="Tallarín De Pollo En Trozos Con Verduras">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Tallarín De Pollo En Trozos Con Verduras</h3>
+                        <p>Tallarín semicrocante saltado con pollo parte pierna en trozos y verduras.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 21.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Pollo Limon Kay" data-price="24.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/chijaukay.jpg" alt="Pollo Limon Kay">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Pollo Limon Kay</h3>
+                        <p>Pollo crujiente bañado salteado en salsa de limón con un toque agridulce.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 24.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Pollo Mandarín" data-price="24.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/tipakay.jpg" alt="Pollo Mandarín">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Pollo Mandarín</h3>
+                        <p>Trozos de pollo crujiente en salsa de mandarina con un toque agridulce.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 24.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Carne al Ajonjolí" data-price="28.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/chancho-asado-al-ajo.png" alt="Carne al Ajonjolí">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Carne al Ajonjolí</h3>
+                        <p>Carne al ajonjolí saltada con brocoli.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 28.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Chancho Al Ajo Picante" data-price="25.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/chancho-asado-al-ajo.png" alt="Chancho Al Ajo Picante">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Chancho Al Ajo Picante</h3>
+                        <p>Empanizado y frito, con un salteado de ajo, ají y culantro.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 25.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Alitas El Puente (12 unid.)" data-price="32.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/wantan-frito.jpg" alt="Alitas El Puente">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Alitas El Puente (12 unid.)</h3>
+                        <p>Alitas de pollo crujientes acompañadas de salsa de limón.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 32.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="1/2 Pollo Asado Al Cilindro" data-price="38.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/chijaukay.jpg" alt="1/2 Pollo Asado Al Cilindro">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>1/2 Pollo Asado Al Cilindro</h3>
+                        <p>Medio pollo asado al cilindro bañado en salsa agridulce.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 38.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="La Plancha Taypa" data-price="40.00" data-category="plato">
+                <div class="menu-img-container">
+                    <img src="img/kamlu-wantan.webp" alt="La Plancha Taypa">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>La Plancha Taypa</h3>
+                        <p>Todas las carnes, mariscos y verduras en salsa de ostión.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 40.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BEBIDAS -->
+        <h2 class="section-title" id="bebidas">Bebidas</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card" data-name="Inca Kola 500ml" data-price="3.50" data-category="bebida">
+                <div class="menu-img-container">
+                    <img src="img/inka-cola.jpg" alt="Inca Kola">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Inca Kola 500ml</h3>
+                        <p>Bebida gasificada helada, la compañera ideal para tu chifa.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 3.50</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Coca Cola 500ml" data-price="3.50" data-category="bebida">
+                <div class="menu-img-container">
+                    <img src="img/coca-cola.jpg" alt="Coca Cola">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Coca Cola 500ml</h3>
+                        <p>Bebida gasificada helada en su presentación personal.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 3.50</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Chicha Morada (vaso)" data-price="4.00" data-category="bebida">
+                <div class="menu-img-container">
+                    <img src="img/chicha-morada.png" alt="Chicha Morada">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Chicha Morada (vaso)</h3>
+                        <p>Chicha natural preparada en casa con maíz morado, canela y clavo.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 4.00</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-name="Agua San Luis 500ml" data-price="2.50" data-category="bebida">
+                <div class="menu-img-container">
+                    <img src="img/san-luis.jpg" alt="Agua Mineral">
+                </div>
+                <div class="menu-info">
+                    <div>
+                        <h3>Agua San Luis 625ml</h3>
+                        <p>Agua de mesa personal disponible con o sin gas.</p>
+                    </div>
+                    <div class="menu-bottom">
+                        <div class="menu-price">S/ 2.50</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                            <span class="qty-count">0</span>
+                            <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TARJETA INFORMATIVA DE PAGOS (YAPE / PLIN) -->
+        <div class="payment-info-card">
+            <div class="payment-info-content">
+                <h3>Métodos de Pago Disponibles</h3>
+                <p>Ahora puedes pagar tus pedidos de forma rápida y segura mediante transferencia:</p>
+                <div class="payment-badges">
+                    <img src="img/yape-logo.png" alt="Yape" class="payment-logo">
+                    <img src="img/plin-logo.webp" alt="Plin" class="payment-logo">
+                </div>
+                <button class="btn-copy-payment" onclick="copyYapeNumber()">
+                    Copiar número
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BARRA FLOTANTE INFERIOR (LIMPIA) -->
+    <div class="order-bar">
+        <div class="order-summary">
+            <span class="order-summary-items" id="items-count">0 productos seleccionados</span>
+            <span class="order-summary-taper" id="taper-extra">+ S/ 0.00 por táper</span>
+            <span class="order-summary-total" id="total-price">S/ 0.00</span>
+        </div>
+        <div class="order-actions-container">
+            <span class="order-reminder">💡 Adjunta tu captura de Yape/Plin</span>
+            <button id="wsp-btn" class="btn-whatsapp" onclick="sendOrder()" disabled>
+                Enviar pedido
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
